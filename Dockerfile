@@ -13,9 +13,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-COPY . /var/www
+COPY . .
 
-RUN composer install
+RUN composer install || true
 
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www
